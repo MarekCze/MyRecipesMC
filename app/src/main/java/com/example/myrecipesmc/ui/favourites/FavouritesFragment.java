@@ -1,4 +1,4 @@
-package com.example.myrecipesmc.ui.slideshow;
+package com.example.myrecipesmc.ui.favourites;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,17 +14,17 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.myrecipesmc.R;
 
-public class SlideshowFragment extends Fragment {
+public class FavouritesFragment extends Fragment {
 
-    private SlideshowViewModel slideshowViewModel;
+    private FavouritesViewModel favouritesViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        slideshowViewModel =
-                ViewModelProviders.of(this).get(SlideshowViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_slideshow, container, false);
-        final TextView textView = root.findViewById(R.id.text_slideshow);
-        slideshowViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        favouritesViewModel =
+                ViewModelProviders.of(this).get(FavouritesViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_favourites, container, false);
+        final TextView textView = root.findViewById(R.id.text_gallery);
+        favouritesViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);
