@@ -1,5 +1,7 @@
 package com.example.myrecipesmc.model;
 
+import android.content.Context;
+
 import java.util.List;
 
 public class Recipe {
@@ -14,7 +16,15 @@ public class Recipe {
     private List<RecipeIngredient> recipeIngredients;
     private List<RecipeStep> recipeSteps;
 
+    private List<Recipe> recipes;
+
     public Recipe(){}
+
+    public Recipe(String name, String description, String category){
+        this.name = name;
+        this.description = description;
+        this.category = category;
+    }
 
     public Recipe(int recipe_id, String name, String description, String category, int prep_time, int cook_time, String difficulty, int serving, List<RecipeIngredient> recipeIngredients, List<RecipeStep> recipeSteps){
         this.recipe_id = recipe_id;
@@ -27,6 +37,20 @@ public class Recipe {
         this.serving = serving;
         this.recipeIngredients = recipeIngredients;
         this.recipeSteps = recipeSteps;
+    }
+
+    public List<Recipe> getAllRecipes(Context context){
+        List<Recipe> recipes = new DB(context).getRecipes();
+
+        return recipes;
+    }
+
+    public List<Recipe> getRecipes() {
+        return recipes;
+    }
+
+    public void setRecipes(List<Recipe> recipes) {
+        this.recipes = recipes;
     }
 
     public int getRecipe_id() {

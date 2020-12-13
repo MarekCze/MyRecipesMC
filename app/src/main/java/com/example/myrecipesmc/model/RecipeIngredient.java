@@ -3,9 +3,9 @@ package com.example.myrecipesmc.model;
 public class RecipeIngredient {
     private int recipe_id;
     private Ingredient ingredient;
-    private float amount;
+    private String amount;
 
-    public RecipeIngredient(int recipe_id, Ingredient ingredient, float amount) {
+    public RecipeIngredient(int recipe_id, Ingredient ingredient, String amount) {
         this.recipe_id = recipe_id;
         this.ingredient = ingredient;
         this.amount = amount;
@@ -27,11 +27,11 @@ public class RecipeIngredient {
         this.ingredient = ingredient;
     }
 
-    public float getAmount() {
+    public String getAmount() {
         return amount;
     }
 
-    public void setAmount(float amount) {
+    public void setAmount(String amount) {
         this.amount = amount;
     }
 }
